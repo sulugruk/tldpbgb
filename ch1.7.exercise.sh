@@ -2,17 +2,16 @@
 
 # Where is the bash program located on your system? 
 cat /etc/shells
-printf "\n"
+printf '\n'
 
 # Use the --version option to find out which version you are running.
-printf "# bash --version:\n"
+printf '# bash --version:\n'
 bash --version
-printf "\n"
+printf '\n'
 
 # Which shell configuration files are read when you login to your system using the graphical user interface and then opening a terminal window?" 
-printf "\n"
-printf "# .bashrc\n"
-printf "$HOME/.bashrc\n"
+printf '# $HOME/.bashrc:\n'
+printf "$HOME/.bashrc\n\n"
 
 # Are the following shells interactive shells? Are they login shells?
 #	- A shell opened by clicking on the background of your graphical desktop, selecting "Terminal" or such from a menu. Answer: no
@@ -26,6 +25,27 @@ printf "$HOME/.bashrc\n"
 # Answer: In the absence of traps (SIGINT). Typing Ctrl+C, will not quit interactive shell.
 
 # Display directory stack content.
-printf "\n"
 printf '# $DIRSTACK:\n'
-echo $DIRSTACK
+printf '$DIRSTACK\n\n'
+
+###echo -e "Normal \e[4mUnderlined"
+
+printf '# ~/.bashrc: $PS1\n'
+cat $HOME/.bashrc | grep PS1
+printf '\n\n'
+
+#Display hashed commands for your current shell session.
+printf '$ hashed commands\n'
+hash
+printf '\n'
+
+# How many processes are currently running on your system? Use ps and wc, the first line of output of ps is not a process!
+printf '# currently running processes:\n'
+ps -r | wc -l
+printf '\n'
+
+# How to display the system hostname? Only the name, nothing more!
+printf '# To dissplay hostname: hostname or uname -n\n'
+hostname
+
+
