@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_02.html
+# Don't forget to enable syntax highlighting
+
+# This is backup of srcipt dir (need check .git tree)
+
+cd /tmp
+export tempdirb=`mktemp -d`
+cd ~/bashlearn
+tar cf $tempdirb/tldpbgb.tar tldpbgb > /dev/null 2>&1
+echo "Backup stored to $tempdirb"
+
+scp $tempdirb/tldpbgb.tar kurgulus@192.168.122.145:/home/kurgulus
+date >> ~/tldp/ch3.2.6.variable.log
+echo backup succeeded >> /home/kurgulus/script.log
