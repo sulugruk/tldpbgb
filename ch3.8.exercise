@@ -3,8 +3,6 @@
 # url: http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_08.html
 # Don't forget to enable syntax highlighting
 
-# This is backup script of srcipt dir (need check .git dir)
-
 # 1. creating 3 variables: VAR1, VAR2, VAR3 with given values.
 VAR1="thirteen"
 VAR2="13"
