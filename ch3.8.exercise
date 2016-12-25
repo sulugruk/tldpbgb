@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# url: 
+# url: http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_08.html
 # Don't forget to enable syntax highlighting
 
-# This is backup of srcipt dir (need check .git tree)
+# This is backup script of srcipt dir (need check .git dir)
 
-# 1. createing 3 variables, VAR1, VAR2, VAR3 with given values.
+# 1. creating 3 variables: VAR1, VAR2, VAR3 with given values.
 VAR1="thirteen"
 VAR2="13"
 VAR3="Happy Virthday"
 
-# 2. display
+# 2. display it
 printf "Value of the \$VAR1: $VAR1 \n"
 printf "Value of the \$VAR2: $VAR2 \n"
 printf "Value of the \$VAR3: $VAR3 \n"
@@ -26,29 +26,30 @@ printf "Value of the \$VAR3: $VAR3 \n"
 #       set | grep -n VAR
 #       env | grep -n VAR
 #	unset GVAR 
-#
 
 # 4. removing VAR3
-#echo
-#unset VAR3
-#set -x
-#printf "Value of the \$VAR1: $VAR1 \n"
-#printf "Value of the \$VAR2: $VAR2 \n"
-#printf "Value of the \$VAR3: $VAR3 \n"
-#set +x
+echo
+unset VAR3
+set -x
+printf "Value of the \$VAR1: $VAR1 \n"
+printf "Value of the \$VAR2: $VAR2 \n"
+printf "Value of the \$VAR3: $VAR3 \n"
+set +x
 
-# 5. Can you see the two remaining variables in a new terminal window? Answer: Yes.i
+# 5. Can you see the two remaining variables in a new terminal window? Answer: Yes.
 
-# 6. Edit /etc/profile so that all users are greeted upon login (test this). 
+# 6. Edit /etc/profile so that all users are greeted upon login. 
 #    Uncomment the following line to add alias.  
+sudo bash -c "printf \"Hello, \$USER\""
+echo
 # sudo bash -c "printf \"alias c='clear'\n\" >> /etc/profile"
 
-# 7. 
-# less /etc/passwd | grep root
-# or `cat /etc/passwd | grep root | cut -d ':' -f 7`
-
-#bash -c "id";
-origps1=$PS1;
+# 7. For the root account, set the prompt to something like "Danger!! root is doing stuff in \w", preferably in a bright color such as red or pink or in reverse video mode. 
+# First we should check default root's shell: `less /etc/passwd | grep root` or `cat /etc/passwd | grep root | cut -d ':' -f 7`
+# After exec from root:
 # PS1="[\u@\h, load: `cat /proc/loadavg | awk '{ print $1; }'`] (\d - \t)\n\w \$ "
+# 	or
 # printf "PS1=\"[\\\\u@\\\\h, load: \`cat /proc/loadavg | awk '{ print \$1; }'\`]\"" >> /root/.bashrc
-sudo bash -c "cat './ch3.8.exercise.q7' >> /root/.bashrc"
+# 
+# if user sudoer, uncomment following line:
+# sudo bash -c "cat './ch3.8.exercise.q7' >> /root/.bashrc"
