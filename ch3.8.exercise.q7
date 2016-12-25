@@ -1,0 +1,1 @@
+PS1="[\u@\h, load: `cat /proc/loadavg | awk '{ print $1; }'`] (\d - \t)\n\w \$ "
