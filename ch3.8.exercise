@@ -40,16 +40,37 @@ set +x
 
 # 6. Edit /etc/profile so that all users are greeted upon login. 
 #    Uncomment the following line to add alias.  
-sudo bash -c "printf \"Hello, \$USER\""
+echo '# trying to modify /etc/profile'
+echo
+sudo bash -c "echo echo Hello, \\\$USER >> /etc/profile"
 echo
 # sudo bash -c "printf \"alias c='clear'\n\" >> /etc/profile"
 
 # 7. For the root account, set the prompt to something like "Danger!! root is doing stuff in \w", preferably in a bright color such as red or pink or in reverse video mode. 
-# First we should check default root's shell: `less /etc/passwd | grep root` or `cat /etc/passwd | grep root | cut -d ':' -f 7`
-# After exec from root:
-# PS1="[\u@\h, load: `cat /proc/loadavg | awk '{ print $1; }'`] (\d - \t)\n\w \$ "
-# 	or
-# printf "PS1=\"[\\\\u@\\\\h, load: \`cat /proc/loadavg | awk '{ print \$1; }'\`]\"" >> /root/.bashrc
-# 
-# if user sudoer, uncomment following line:
-# sudo bash -c "cat './ch3.8.exercise.q7' >> /root/.bashrc"
+#    Firstly we should check default root's shell: `less /etc/passwd | grep root` or `cat /etc/passwd | grep root | cut -d ':' -f 7`
+#    After exec from root:
+#	PS1="[\u@\h, load: `cat /proc/loadavg | awk '{ print $1; }'`] (\d - \t)\n\w \$ "
+# 		or
+#	printf "PS1=\"[\\\\u@\\\\h, load: \`cat /proc/loadavg | awk '{ print \$1; }'\`]\"" >> /root/.bashrc
+#  
+#    if user is sudoer, uncomment following line:
+#	sudo bash -c "cat './ch3.8.exercise.q7' >> /root/.bashrc"
+
+# 8. Make sure that newly created users also get a nice personalized prompt which informs them on which system in which directory they are working. Test your changes by adding a new user and logging in as that user.
+#    Task 6. Done. 
+
+# 9. Write a script in which you assign two integer values to two variables. The script should calculate the surface of a rectangle which has these proportions. It should be aired with comments and generate elegant output.
+VAR4=$RANDOM
+VAR5=$RANDOM
+echo "\$VAR4 = $VAR4"
+echo "\$VAR5 = $VAR5"
+echo "\$VAR4 + \$VAR5 = $[$VAR4+$VAR5]"
+echo
+echo "\$VAR4 - \$VAR5 = $[$VAR4-$VAR5]"
+echo
+echo "\$VAR4 * \$VAR5 = $[$VAR4*$VAR5]"
+echo
+echo "\$VAR4 / \$VAR5 = $[$VAR4/$VAR5]"
+echo
+echo "\$VAR4 exp \$VAR5 = $[$VAR4**$VAR5]"
+echo 
