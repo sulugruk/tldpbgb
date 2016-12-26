@@ -38,10 +38,10 @@ set +x
 
 # 6. Edit /etc/profile so that all users are greeted upon login. 
 #    Uncomment the following line to add alias.  
-echo '# trying to modify /etc/profile'
-echo
-sudo bash -c "echo echo Hello, \\\$USER >> /etc/profile"
-echo
+# echo '# trying to modify /etc/profile'
+# echo
+# sudo bash -c "echo echo Hello, \\\$USER >> /etc/profile"
+# echo
 # sudo bash -c "printf \"alias c='clear'\n\" >> /etc/profile"
 
 # 7. For the root account, set the prompt to something like "Danger!! root is doing stuff in \w", preferably in a bright color such as red or pink or in reverse video mode. 
@@ -60,15 +60,12 @@ echo
 # 9. Write a script in which you assign two integer values to two variables. The script should calculate the surface of a rectangle which has these proportions. It should be aired with comments and generate elegant output.
 VAR4=$RANDOM
 VAR5=$RANDOM
+echo
 echo "\$VAR4 = $VAR4"
 echo "\$VAR5 = $VAR5"
 echo "\$VAR4 + \$VAR5 = $[$VAR4+$VAR5]"
-echo
 echo "\$VAR4 - \$VAR5 = $[$VAR4-$VAR5]"
-echo
 echo "\$VAR4 * \$VAR5 = $[$VAR4*$VAR5]"
-echo
 echo "\$VAR4 / \$VAR5 = $[$VAR4/$VAR5]"
-echo
 echo "\$VAR4 exp \$VAR5 = $[$VAR4**$VAR5]"
-echo 
+
