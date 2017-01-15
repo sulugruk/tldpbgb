@@ -4,10 +4,10 @@
 # url: http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_01.html +
 # url: http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_05.html +
 # Don't forget to enable syntax highlighting                             +
-# man grep								 +
-# man 7 regex								 +
-# man 7 glob								 +
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++i
+# man grep								 								 +
+# man 7 regex								 							 +
+# man 7 glob								 							 +
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (
 printf '1. Display a list of all the users on your system who log in with the Bash shell as a default. \n'
 printf "# cat /etc/passwd | grep /bash \n"
@@ -43,13 +43,15 @@ printf "# grep -nR1 'shells' /usr/share/doc/* \n"
 # grep -nr1 'shells' /usr/share/doc/*
 # or 
 # grep -nrH 'shells' /usr/share/doc/*
-grep -nR1 'shells' /usr/share/doc/*
+grep --no-messages -nR1 'shells' /usr/share/doc/*
 echo 
 echo
 
 printf "6. How many README files do these subdirectories contain? Don't count anything in the form of \"README.a_string\". \n"
 printf "# grep -Rn 'README' --include=README /usr/share/doc/* \n"
-grep -rn --include=README 'README' /usr/share/doc/*
+grep -rco --include=README 'README' /usr/share/doc/* | wc -l
+# or 
+# grep -rco --include=README 'README' /usr/share/doc/* | grep -c README
 echo
 echo
 
@@ -77,8 +79,18 @@ grep "$username" /etc/passwd
 echo
 echo
 
-printf "11. Display configuration files in /etc that contain numbers in their names. \n"
-ls -o /etc/ | grep "[a-Z][0-9]"
+printf "12. Display configuration files in /etc that contain numbers in their names. \n"
+grep --no-message -l [[:alnum:]] /etc/* | grep [[:digit:]]
+# or
+# ls -o /etc/ | grep ^- | awk '{print $8}' | grep [[:digit:]]
+# or 
+# find /etc -type f -name \*[[:digit:]]\*
+# http://stackoverflow.com/questions/41658789/display-configuration-files-in-etc-that-contain-numbers-in-their-names-using-g/41658892
 echo
+
+
+
+
+
 
 ) | less
