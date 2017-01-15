@@ -87,10 +87,4 @@ grep --no-message -l [[:alnum:]] /etc/* | grep [[:digit:]]
 # find /etc -type f -name \*[[:digit:]]\*
 # http://stackoverflow.com/questions/41658789/display-configuration-files-in-etc-that-contain-numbers-in-their-names-using-g/41658892
 echo
-
-
-
-
-
-
 ) | less
